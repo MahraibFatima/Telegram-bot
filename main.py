@@ -20,7 +20,7 @@ class Reference:
 
 
 reference = Reference()
-model_name = "gpt-3.5-turbo"
+model_name = "openai/gpt-3.5-turbo"
 
 
 
@@ -78,6 +78,8 @@ async def chatgpt(message: types.Message):
     """
     A handler to process the user's input and generate a response using the chatGPT API.
     """
+    print("Bot starting...")
+    print(f"Using token: {TELEGRAM_BOT_TOKEN[:5]}...")  # Prints first 5 chars of token
     print(f">>> USER: \n\t{message.text}")
     response = openai.ChatCompletion.create(
         model = model_name,
